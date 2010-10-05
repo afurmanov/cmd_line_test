@@ -1,0 +1,28 @@
+= cmd_line_test - Extends Shoulda or Test::Unit with macros for testing command line apps
+
+= Basic Usage
+
+== Installation
+  $ gem install cmd_line_test
+
+== Example
+If you are about to start writing new command line utility MyCommandLineApp, you probably want to specify its options and behavior, likely in form of tests. This gem is aimed to simplify creation of such tests:
+
+
+  requrie 'cmd_line_test'
+
+  class CliTest < Test::Unit::TestCase
+    run_command_line_as {MyCommandLineApp.run}
+  
+    run_with_argv "--help" do
+      assert_successful_run
+      assert_out_contains /Usage:/
+    end
+  end
+
+= Shortcomings
+Only tested on the 1.8.7 Ruby implementation and with Shoulda 2.10.1
+
+= License
+cmd_line_test is released under the MIT license.
+

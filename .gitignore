@@ -1,0 +1,5 @@
+pkg
+doc
+Manifest
+cmd_line_test/**
+
